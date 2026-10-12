@@ -967,7 +967,6 @@ body{font-size:19.5px}
         </div>
         <div class="row" style="justify-content:space-between">
           <div class="opts">
-            <button class="toggle" id="optSlow" aria-pressed="false">🐢 Slower</button>
             <button class="toggle" id="optStop" aria-pressed="false">✋ Stop after each page</button>
             <button class="toggle" id="optText" aria-pressed="true">👀 Show the words</button>
           </div>
@@ -1172,7 +1171,6 @@ $('nextCue').onclick=()=>goPage(page+1,true);
 $('curlR').onclick=()=>$('next').click();$('curlL').onclick=()=>$('prev').click();
 $('seek').addEventListener('input',e=>{audio.currentTime=+e.target.value;waitingTurn=false;const np=pageAt(audio.currentTime);if(np!==page){turnDir=np<page?-1:1;page=np;render(true)}else highlight()});
 function tog(id,fn){const b=$(id);b.onclick=()=>{const v=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',v);fn(v)}}
-tog('optSlow',v=>{audio.playbackRate=v?0.85:1});
 tog('optStop',v=>{stopAtEnd=v});
 tog('optText',v=>{$('leafText').classList.toggle('hide-text',!v)});
 document.addEventListener('keydown',e=>{
